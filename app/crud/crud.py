@@ -20,7 +20,7 @@ def validar_dni(dni: str) -> bool:
 def create_cliente(db: Session, cliente: ClienteCreate):
     if not validar_dni(cliente.dni):
         raise ValueError("DNI no válido")
-    db_cliente = Cliente(**cliente.dict())
+    db_cliente = Cliente(**cliente.model_dump())
     db.add(db_cliente)
     db.commit()
     db.refresh(db_cliente)
