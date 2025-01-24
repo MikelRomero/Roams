@@ -1,6 +1,8 @@
 # Simulador de Hipotecas - API RESTful
 
-¡Bienvenido al proyecto de Simulador de Hipotecas! Esta es una API RESTful desarrollada en Python con FastAPI que permite realizar simulaciones de hipotecas para diferentes clientes. La API utiliza SQLite como base de datos y ofrece operaciones CRUD para gestionar clientes y simulaciones de hipotecas.
+¡Bienvenido al proyecto de Simulador de Hipotecas! 
+Esta es una API RESTful desarrollada en Python con FastAPI que permite realizar simulaciones de hipotecas para diferentes clientes. 
+La API utiliza SQLite como base de datos y ofrece operaciones CRUD para gestionar clientes y simulaciones de hipotecas.
 
 ## Características principales
 
