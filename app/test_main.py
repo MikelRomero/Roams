@@ -36,7 +36,39 @@ def test_get_cliente(test_db):
     assert response.json()["nombre"] == "John Doe"
     assert response.json()["dni"] == "12345678Z"
 
+def test_update_cliente(test_db):
+    response = client.put("/clientes/dni/12345678Z", json={
+        "nombre": "John Doe Updated",
+        "dni": "12345678Z",
+        "email": "john.doe.updated@example.com",
+        "capital_solicitado": 150000.0
+    })
+    assert response.status_code == 200
+    assert response.json()["nombre"] == "John Doe Updated"
+    assert response.json()["email"] == "john.doe.updated@example.com"
+
+def test_delete_cliente(test_db):
+    response = client.delete("/clientes/dni/12345678Z")
+    assert response.status_code == 200
+    assert response.json()["message"] == "Cliente eliminado"
+
+    # Verify the client is deleted
+    response = client.get("/clientes/dni/12345678Z")
+    assert response.status_code == 404
+    assert response.json()["detail"] == "Cliente no encontrado"
+
 def test_simulate_hipoteca(test_db):
+    # Create a client first
+    response = client.post("/clientes/", json={
+        "nombre": "Jane Doe",
+        "dni": "87654321X",
+        "email": "jane.doe@example.com",
+        "capital_solicitado": 200000.0
+    })
+    assert response.status_code == 200
+    cliente_id = response.json()["id"]
+
+    # Simulate a mortgage for the created client
     response = client.post("/hipotecas/", json={
         "cliente_id": 1,
         "tae": 3.5,
