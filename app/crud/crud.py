@@ -34,25 +34,19 @@ def get_cliente_by_dni(db: Session, dni: str):
 def get_cliente(db: Session, cliente_id: int):
     return db.get(Cliente, cliente_id)
 
-# Actualizar un cliente
-def update_cliente(db: Session, cliente_id: int, cliente: ClienteCreate):
-    db_cliente = db.get(Cliente, cliente_id)
-    if db_cliente:
-        db_cliente.nombre = cliente.nombre
-        db_cliente.dni = cliente.dni
-        db_cliente.email = cliente.email
-        db_cliente.capital_solicitado = cliente.capital_solicitado
-        db.commit()
-        db.refresh(db_cliente)
+# Actualizar un cliente existente
+def update_cliente(db: Session, db_cliente: Cliente, cliente: ClienteCreate):
+    db_cliente.nombre = cliente.nombre
+    db_cliente.email = cliente.email
+    db_cliente.capital_solicitado = cliente.capital_solicitado
+    db.commit()
+    db.refresh(db_cliente)
     return db_cliente
 
-# Eliminar un cliente
-def delete_cliente(db: Session, cliente_id: int):
-    db_cliente = db.get(Cliente, cliente_id)
-    if db_cliente:
-        db.delete(db_cliente)
-        db.commit()
-    return db_cliente
+# Eliminar un cliente existente
+def delete_cliente(db: Session, db_cliente: Cliente):
+    db.delete(db_cliente)
+    db.commit()
 
 # Simular una hipoteca
 def simular_hipoteca(db: Session, simulacion: SimulacionHipotecaCreate):
