@@ -23,7 +23,7 @@ class SimulacionHipotecaCreate(SimulacionHipotecaBase):
 class ClienteResponse(ClienteBase):
     id: int  # Añade el campo ID
 
-    class Config:
+    class ConfigDict:
         orm_mode = True  # Permite la conversión automática a/desde ORM
 
 class SimulacionHipotecaResponse(SimulacionHipotecaBase):
@@ -31,5 +31,5 @@ class SimulacionHipotecaResponse(SimulacionHipotecaBase):
     cuota_mensual: float  # Campos adicionales para la respuesta
     importe_total: float
 
-    class Config:
+    class ConfigDict:
         orm_mode = True  # Permite la conversión automática a/desde ORM
