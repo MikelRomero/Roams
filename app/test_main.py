@@ -8,10 +8,10 @@ client = TestClient(app)
 
 @pytest.fixture(scope="module")
 def test_db():
-    # Create the database and tables
+
     create_db_and_tables()
     yield
-    # Drop the database and tables after tests
+
     SQLModel.metadata.drop_all(engine)
 
 @pytest.fixture(scope="module")
@@ -52,13 +52,12 @@ def test_delete_cliente(test_db):
     assert response.status_code == 200
     assert response.json()["message"] == "Cliente eliminado"
 
-    # Verify the client is deleted
     response = client.get("/clientes/dni/12345678Z")
     assert response.status_code == 404
     assert response.json()["detail"] == "Cliente no encontrado"
 
 def test_simulate_hipoteca(test_db):
-    # Create a client first
+
     response = client.post("/clientes/", json={
         "nombre": "Jane Doe",
         "dni": "87654321X",
@@ -68,7 +67,6 @@ def test_simulate_hipoteca(test_db):
     assert response.status_code == 200
     cliente_id = response.json()["id"]
 
-    # Simulate a mortgage for the created client
     response = client.post("/hipotecas/", json={
         "cliente_id": 1,
         "tae": 3.5,
