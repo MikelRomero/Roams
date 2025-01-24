@@ -26,17 +26,18 @@ async def read_cliente_by_dni(dni: str, db: Session = Depends(get_session)):
     return cliente
 
 # Endpoint para actualizar un cliente existente
-@router.put("/{cliente_id}", response_model=ClienteResponse)
-async def update_existing_cliente(cliente_id: int, cliente: ClienteCreate, db: Session = Depends(get_session)):
-    db_cliente = update_cliente(db, cliente_id, cliente)
+@router.put("/dni/{dni}", response_model=ClienteResponse)
+async def update_existing_cliente(dni: str, cliente: ClienteCreate, db: Session = Depends(get_session)):
+    db_cliente = get_cliente_by_dni(db, dni)
     if db_cliente is None:
         raise HTTPException(status_code=404, detail="Cliente no encontrado")
-    return db_cliente
+    return update_cliente(db, db_cliente, cliente)
 
-# Endpoint para eliminar un cliente
-@router.delete("/{cliente_id}", response_model=ClienteResponse)
-async def delete_existing_cliente(cliente_id: int, db: Session = Depends(get_session)):
-    db_cliente = delete_cliente(db, cliente_id)
+# Endpoint para eliminar un cliente existente
+@router.delete("/dni/{dni}")
+async def delete_existing_cliente(dni: str, db: Session = Depends(get_session)):
+    db_cliente = get_cliente_by_dni(db, dni)
     if db_cliente is None:
         raise HTTPException(status_code=404, detail="Cliente no encontrado")
-    return db_cliente
+    delete_cliente(db, db_cliente)
+    return {"message": "Cliente eliminado"}
