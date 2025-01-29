@@ -21,7 +21,7 @@ La API utiliza SQLite como base de datos y ofrece operaciones CRUD para gestiona
   - Manejo de errores y excepciones para entradas inválidas o datos duplicados.
 
 - **Documentación automática**:
-  - La API está documentada automáticamente usando Swagger UI y ReDoc. Puedes acceder a la documentación interactiva en `/docs` o `/redoc`.
+  - La API está documentada automáticamente usando Swagger UI. Puedes acceder a la documentación interactiva en `/docs`.
 
 ## Requisitos previos
 
@@ -36,5 +36,35 @@ Sigue estos pasos para instalar y ejecutar el proyecto:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tu-usuario/simulador-hipotecas.git
-   cd simulador-hipotecas
+   git clone https://github.com/MikelRomero/Roams.git
+
+2. **Navega al directorio de la aplicación**:
+   ```win
+   cd Roams/app
+
+3. **Crea el entorno virtual**:
+   ```
+   python -m venv venv
+   
+4. **Activa el entorno**:
+   ```win
+   venv\Scripts\activate
+   
+   ```macOs/Linux
+   source venv/bin/activate
+   
+5. **Instalar los requisitos**:
+    ```
+   pip install -r requirements.txt
+
+6. **Lanza la aplicación**:
+    ```
+   uvicorn main:app --reload
+
+
+
+
+
+
+
+   
