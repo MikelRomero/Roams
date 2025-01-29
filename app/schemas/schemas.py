@@ -1,10 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 # Modelos base para evitar redundancia
 class ClienteBase(BaseModel):
     nombre: str
     dni: str
-    email: str
+    email: EmailStr
     capital_solicitado: float
 
 class SimulacionHipotecaBase(BaseModel):
