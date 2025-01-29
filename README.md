@@ -37,4 +37,34 @@ Sigue estos pasos para instalar y ejecutar el proyecto:
 1. **Clona el repositorio**:
    ```bash
    git clone https://github.com/MikelRomero/Roams.git
+
+2. **Navega al directorio de la aplicación**:
+   ```win
+   cd Roams/app
+
+2. **Crea el entorno virtual**:
+   ```
+   python -m venv venv
+   
+3. **Activa el entorno**:
+   ```win
+   venv\Scripts\activate
+   
+   ```macOs/Linux
+   source venv/bin/activate
+   
+5. **Instalar los requisitos**:
+    ```
+   pip install -r requirements.txt
+
+6. **Lanza la aplicación**:
+    ```
+   uvicorn main:app --reload
+
+
+
+
+
+
+
    
