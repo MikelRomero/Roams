@@ -36,5 +36,5 @@ Sigue estos pasos para instalar y ejecutar el proyecto:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone [https://github.com/tu-usuario/simulador-hipotecas.git](https://github.com/MikelRomero/Roams.git)
+   git clone https://github.com/MikelRomero/Roams.git
    
