@@ -1,6 +1,6 @@
 from sqlmodel import Session, select
-from app.models.models import Cliente, SimulacionHipoteca
-from app.schemas.schemas import ClienteCreate, SimulacionHipotecaCreate
+from models.models import Cliente, SimulacionHipoteca
+from schemas.schemas import ClienteCreate, SimulacionHipotecaCreate
 from typing import Optional
 
 # Validar el DNI

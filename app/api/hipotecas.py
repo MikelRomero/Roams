@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
-from app.database import get_session
-from app.models.models import SimulacionHipoteca
-from app.schemas.schemas import SimulacionHipotecaCreate, SimulacionHipotecaResponse
-from app.crud.crud import simular_hipoteca
+from database import get_session
+from models.models import SimulacionHipoteca
+from schemas.schemas import SimulacionHipotecaCreate, SimulacionHipotecaResponse
+from crud.crud import simular_hipoteca
 
 router = APIRouter()
 

@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
-from app.main import app
-from app.database import create_db_and_tables, get_session, engine
+from main import app
+from database import create_db_and_tables, get_session, engine
 from sqlmodel import SQLModel, Session
 
 client = TestClient(app)
