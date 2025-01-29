@@ -42,11 +42,11 @@ Sigue estos pasos para instalar y ejecutar el proyecto:
    ```win
    cd Roams/app
 
-2. **Crea el entorno virtual**:
+3. **Crea el entorno virtual**:
    ```
    python -m venv venv
    
-3. **Activa el entorno**:
+4. **Activa el entorno**:
    ```win
    venv\Scripts\activate
    
