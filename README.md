@@ -21,7 +21,7 @@ La API utiliza SQLite como base de datos y ofrece operaciones CRUD para gestiona
   - Manejo de errores y excepciones para entradas inválidas o datos duplicados.
 
 - **Documentación automática**:
-  - La API está documentada automáticamente usando Swagger UI y ReDoc. Puedes acceder a la documentación interactiva en `/docs` o `/redoc`.
+  - La API está documentada automáticamente usando Swagger UI. Puedes acceder a la documentación interactiva en `/docs`.
 
 ## Requisitos previos
 
@@ -36,5 +36,5 @@ Sigue estos pasos para instalar y ejecutar el proyecto:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tu-usuario/simulador-hipotecas.git
-   cd simulador-hipotecas
+   git clone [https://github.com/tu-usuario/simulador-hipotecas.git](https://github.com/MikelRomero/Roams.git)
+   
