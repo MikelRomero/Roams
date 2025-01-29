@@ -1,4 +1,4 @@
-from sqlmodel import SQLModel, create_engine, Session
+from sqlmodel import SQLModel, create_engine, AsyncSession
 
 # Configuración de la base de datos
 DATABASE_URL = "sqlite:///database.db"
@@ -9,6 +9,7 @@ def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
 # Obtener una sesión de la base de datos
-def get_session():
-    with Session(engine) as session:
+
+async def get_session() -> AsyncSession:
+    async with AsyncSession(engine) as session:
         yield session
